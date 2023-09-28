@@ -91,7 +91,7 @@ class CMdSpiImpl(mdapi.CThostFtdcMdSpi):
 
     def wait(self):
         # 阻塞 等待
-        input("-------------------------------- 按任意键退出 trader api demo ")
+        input("-------------------------------- 按任意键退出 mduser api demo ")
 
         self._api.Release()
 
