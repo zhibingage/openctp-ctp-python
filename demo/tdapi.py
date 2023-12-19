@@ -324,19 +324,70 @@ class CTdSpiImpl(tdapi.CThostFtdcTraderSpi):
         if not self._check_rsp(pRspInfo, pDepthMarketData, bIsLast):
             return
 
-    def order_insert(self):
-        """报单录入请求
+    def market_order_insert(
+        self, exchange_id: str, instrument_id: str, volume: int = 1
+    ):
+        """报单录入请求(市价单)
 
         - 录入错误时对应响应OnRspOrderInsert、OnErrRtnOrderInsert，
         - 正确时对应回报OnRtnOrder、OnRtnTrade。
         """
+        print("> 报单录入请求(市价单)")
 
-    def order_cancel(self):
-        """报单撤销请求
+        # 市价单, 注意选择一个相对活跃的合约
+        # simnow 目前貌似不支持市价单，所以会被自动撤销！！！
+        _req = tdapi.CThostFtdcInputOrderField()
+        _req.BrokerID = self._broker_id
+        _req.InvestorID = self._user
+        _req.ExchangeID = exchange_id
+        _req.InstrumentID = instrument_id
+        _req.LimitPrice = 0
+        _req.OrderPriceType = tdapi.THOST_FTDC_OPT_AnyPrice  # 价格类型市价单
+        _req.Direction = tdapi.THOST_FTDC_D_Buy  # 买
+        _req.CombOffsetFlag = tdapi.THOST_FTDC_OF_Open  # 开仓
+        _req.CombHedgeFlag = tdapi.THOST_FTDC_HF_Speculation
+        _req.VolumeTotalOriginal = volume
+        _req.IsAutoSuspend = 0
+        _req.IsSwapOrder = 0
+        _req.TimeCondition = tdapi.THOST_FTDC_TC_GFD
+        _req.VolumeCondition = tdapi.THOST_FTDC_VC_AV
+        _req.ContingentCondition = tdapi.THOST_FTDC_CC_Immediately
+        _req.ForceCloseReason = tdapi.THOST_FTDC_FCC_NotForceClose
+        self._check_req(_req, self._api.ReqOrderInsert(_req, 0))
 
-        - 错误响应: OnRspOrderAction，OnErrRtnOrderAction
-        - 正确响应：OnRtnOrder
+    def limit_order_insert(
+        self,
+        exchange_id: str,
+        instrument_id: str,
+        price: float,
+        volume: int = 1,
+    ):
+        """报单录入请求(限价单)
+
+        - 录入错误时对应响应OnRspOrderInsert、OnErrRtnOrderInsert，
+        - 正确时对应回报OnRtnOrder、OnRtnTrade。
         """
+        print("> 报单录入请求(限价单)")
+
+        # 限价单 注意选择一个相对活跃的合约及合适的价格
+        _req = tdapi.CThostFtdcInputOrderField()
+        _req.BrokerID = self._broker_id
+        _req.InvestorID = self._user
+        _req.ExchangeID = exchange_id
+        _req.InstrumentID = instrument_id  # 合约ID
+        _req.LimitPrice = price  # 价格
+        _req.OrderPriceType = tdapi.THOST_FTDC_OPT_LimitPrice  # 价格类型限价单
+        _req.Direction = tdapi.THOST_FTDC_D_Buy  # 买
+        _req.CombOffsetFlag = tdapi.THOST_FTDC_OF_Open  # 开仓
+        _req.CombHedgeFlag = tdapi.THOST_FTDC_HF_Speculation
+        _req.VolumeTotalOriginal = volume
+        _req.IsAutoSuspend = 0
+        _req.IsSwapOrder = 0
+        _req.TimeCondition = tdapi.THOST_FTDC_TC_GFD
+        _req.VolumeCondition = tdapi.THOST_FTDC_VC_AV
+        _req.ContingentCondition = tdapi.THOST_FTDC_CC_Immediately
+        _req.ForceCloseReason = tdapi.THOST_FTDC_FCC_NotForceClose
+        self._check_req(_req, self._api.ReqOrderInsert(_req, 0))
 
     def OnRspOrderInsert(
         self,
@@ -346,14 +397,88 @@ class CTdSpiImpl(tdapi.CThostFtdcTraderSpi):
         bIsLast: bool,
     ):
         """报单录入请求响应"""
-        if not self._check_rsp(pRspInfo, pInputOrder, bIsLast):
-            return
+        self._check_rsp(pRspInfo, pInputOrder, bIsLast)
+
+    def order_cancel1(
+        self, exchange_id: str, instrument_id: str, order_sys_id: str
+    ):
+        """报单撤销请求 方式一
+
+        - 错误响应: OnRspOrderAction，OnErrRtnOrderAction
+        - 正确响应：OnRtnOrder
+        """
+        print("> 报单撤销请求 方式一")
+
+        # 撤单请求，首先需要有一笔未成交的订单，可以使用限价单，按照未成交订单信息填写撤单请求
+        _req = tdapi.CThostFtdcInputOrderActionField()
+        _req.BrokerID = self._broker_id
+        _req.InvestorID = self._user
+        _req.UserID = self._user
+        _req.ExchangeID = exchange_id
+        _req.InstrumentID = instrument_id
+        _req.ActionFlag = tdapi.THOST_FTDC_AF_Delete
+
+        _req.OrderSysID = order_sys_id  # OrderSysId 中空格也要带着
+
+        # 若成功，会通过 报单回报 返回新的订单状态, 若失败则会响应失败
+        self._check_req(_req, self._api.ReqOrderAction(_req, 0))
+
+    def order_cancel2(
+        self,
+        exchange_id: str,
+        instrument_id: str,
+        front_id: int,
+        session_id: int,
+        order_ref: str,
+    ):
+        """报单撤销请求 方式二
+
+        - 错误响应: OnRspOrderAction，OnErrRtnOrderAction
+        - 正确响应：OnRtnOrder
+        """
+        print("> 报单撤销请求 方式二")
+
+        # 撤单请求，首先需要有一笔未成交的订单，可以使用限价单，按照未成交订单信息填写撤单请求
+        _req = tdapi.CThostFtdcInputOrderActionField()
+        _req.BrokerID = self._broker_id
+        _req.InvestorID = self._user
+        _req.UserID = self._user
+        _req.ExchangeID = exchange_id
+        _req.InstrumentID = instrument_id
+        _req.ActionFlag = tdapi.THOST_FTDC_AF_Delete
+
+        _req.OrderRef = order_ref
+        _req.FrontID = front_id
+        _req.SessionID = session_id
+
+        # 若成功，会通过 报单回报 返回新的订单状态, 若失败则会响应失败
+        self._check_req(_req, self._api.ReqOrderAction(_req, 0))
+
+    def OnRspOrderAction(
+        self,
+        pInputOrderAction: tdapi.CThostFtdcInputOrderActionField,
+        pRspInfo: tdapi.CThostFtdcRspInfoField,
+        nRequestID: int,
+        bIsLast: bool,
+    ):
+        """报单操作请求响应"""
+        self._check_rsp(pRspInfo, pInputOrderAction, bIsLast)
 
     def OnRtnOrder(self, pOrder: tdapi.CThostFtdcOrderField):
         """报单通知，当执行ReqOrderInsert后并且报出后，收到返回则调用此接口，私有流回报。"""
+        self.print_rsp_rtn("报单通知", pOrder)
 
     def OnRtnTrade(self, pTrade: tdapi.CThostFtdcTradeField):
         """成交通知，报单发出后有成交则通过此接口返回。私有流"""
+        self.print_rsp_rtn("成交通知", pTrade)
+
+    def OnErrRtnOrderInsert(
+        self,
+        pInputOrder: tdapi.CThostFtdcInputOrderField,
+        pRspInfo: tdapi.CThostFtdcRspInfoField,
+    ):
+        """"""
+        self._check_rsp(pRspInfo, pInputOrder)
 
     def wait(self):
         # 阻塞 等待
@@ -393,5 +518,9 @@ if __name__ == "__main__":
     # spi.qry_instrument_margin_rate(instrument_id="ZC309")
     # spi.qry_depth_market_data()
     # spi.qry_depth_market_data(instrument_id="ZC309")
+    # spi.market_order_insert("CZCE", "CF411")
+    # spi.limit_order_insert("CZCE", "CF411", 15000)
+    spi.order_cancel1("CZCE", "CF411", "        4858")
+    spi.order_cancel2("CZCE", "CF411", 1, -1111111, "3")
 
     spi.wait()
