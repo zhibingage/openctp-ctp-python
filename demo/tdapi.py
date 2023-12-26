@@ -520,7 +520,7 @@ if __name__ == "__main__":
     # spi.qry_depth_market_data(instrument_id="ZC309")
     # spi.market_order_insert("CZCE", "CF411")
     # spi.limit_order_insert("CZCE", "CF411", 15000)
-    spi.order_cancel1("CZCE", "CF411", "        4858")
-    spi.order_cancel2("CZCE", "CF411", 1, -1111111, "3")
+    # spi.order_cancel1("CZCE", "CF411", "        4858")
+    # spi.order_cancel2("CZCE", "CF411", 1, -1111111, "3")
 
     spi.wait()
