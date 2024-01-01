@@ -6,17 +6,17 @@
 
 <p align="center">     
     <a href="https://gitee.com/jedore/ctp-resources" target="_blank">
-        <img src="https://badgen.net/badge/ctpapi/6.3.15|6.3.19_P1|6.5.1|6.6.1_P1|6.6.7|6.6.9|6.7.0/green" />
+        <img src="https://badgen.net/badge/ctpapi/6.3.15|6.3.19_P1|6.5.1|6.6.1_P1|6.6.7|6.6.9|6.7.0|6.7.2/green" />
     </a>       
     <a href="#">     
-        <img src="https://badgen.net/badge/python/3.7|3.8|3.9|3.10|3.11/green" />          
+        <img src="https://badgen.net/badge/python/3.7|3.8|3.9|3.10|3.11|3.12/green" />          
     </a> 
-    <a href="#">         
-        <img src="https://badgen.net/badge/plat/Windows|Linux|Mac/green" />  
-    </a>        
 </p>
 
 <p align="center">     
+    <a href="#">         
+        <img src="https://badgen.net/badge/plat/Windows|Linux|Mac/green" />  
+    </a>        
     <a href="https://pypi.org/project/openctp-ctp" target="_blank">                                             
         <img src="https://badgen.net/badge/pypi/openctp-ctp/green" />                    
     </a> 
@@ -30,8 +30,8 @@
 **openctp-ctp** 是由 [**openctp**](https://github.com/openctp) 团队提供的 ctp 官方 ctpapi(c++) 的python版本，
 使用 **swig** 转换 ctpapi(c++) 生成。
 
-openctp-ctp 有 6.3.15.x / 6.3.19.x / 6.5.1.x / 6.6.1.x / 6.6.7.x / 6.6.9.x / 6.7.0.x 多个版本系列，
-分别对应 ctpapi(c++) 的**生产版本**: 6.3.15 / 6.3.19_P1 / 6.5.1 / 6.6.1_P1 / 6.6.7 / 6.6.9 / 6.7.0
+openctp-ctp 有 6.3.15.x / 6.3.19.x / 6.5.1.x / 6.6.1.x / 6.6.7.x / 6.6.9.x / 6.7.0.x / 6.7.2.x 多个版本系列，
+分别对应 ctpapi(c++) 的**生产版本**: 6.3.15 / 6.3.19_P1 / 6.5.1 / 6.6.1_P1 / 6.6.7 / 6.6.9 / 6.7.0 / 6.7.2
 
 *通过 openctp-ctp 库只能连接支持 ctpapi(c++) **官方实现**的柜台，如：simnow; 不支持连接所谓的兼容 ctpapi(c++)
 接口但**非官方实现**的柜台，如: openctp(由tts支持).*
@@ -115,7 +115,13 @@ from openctp_ctp import tdapi, mdapi
     - Mac x64
     - Mac arm64
 
-   支持 Mac 系统的版本有: 6.6.7/6.6.9/6.7.0
+   支持 Mac 系统的版本有: 6.6.7/6.6.9/6.7.0/6.7.2
+
+4. Mac `zsh` 安装 openctp-ctp 失败
+
+   因为 `zsh` 和 `pip` 的一些命令模式冲突
+
+   解决: `pip install openctp-ctp==6.6.7.\*`
 
 ## 其他说明
 

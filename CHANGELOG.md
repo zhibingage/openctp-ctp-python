@@ -1,11 +1,18 @@
+## 2024-01-01
+
+- 新增支持 Python 3.12
+- 新增支持 CTPAPI-6.7.2
+- 修复 Mac 下中文字符乱码
+
 ## 2023-07-29
+
 - 更新安装方式
 
-    由原来的
+  由原来的
     ```bash
     pip install openctp-ctp-667
     ```
-    改为
+  改为
     ```bash
     pip install openctp-ctp==6.6.7.*
     ```
