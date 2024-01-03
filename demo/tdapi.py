@@ -4,6 +4,7 @@
 import inspect
 import queue
 import time
+import sys
 
 from openctp_ctp import tdapi
 
@@ -35,7 +36,7 @@ class CTdSpiImpl(tdapi.CThostFtdcTraderSpi):
         self._is_login = False
 
         self._is_last = True
-        self._print_max = 5
+        self._print_max = 2
         self._print_count = 0
         self._total = 0
 
@@ -103,13 +104,15 @@ class CTdSpiImpl(tdapi.CThostFtdcTraderSpi):
                 )
                 return False
 
-            self.print(f"响应成功")
+            self.print("响应成功")
             if rsp:
                 params = []
                 for name, value in inspect.getmembers(rsp):
                     if name[0].isupper():
                         params.append(f"{name}={value}")
                 self.print("响应内容:", ",".join(params))
+            else:
+                self.print("响应为空")
 
             if not is_last:
                 self._print_count += 1
@@ -203,7 +206,10 @@ class CTdSpiImpl(tdapi.CThostFtdcTraderSpi):
         _req.BrokerID = self._broker_id
         _req.UserID = self._user
         _req.Password = self._password
-        self._check_req(_req, self._api.ReqUserLogin(_req, 0))
+        if sys.platform == "darwin":
+            self._check_req(_req, self._api.ReqUserLogin(_req, 0, 0, ""))
+        else:
+            self._check_req(_req, self._api.ReqUserLogin(_req, 0))
 
     def OnRspUserLogin(
         self,
