@@ -5,24 +5,14 @@
 </p>
 
 <p align="center">     
-    <a href="https://gitee.com/jedore/ctp-resources" target="_blank">
-        <img src="https://badgen.net/badge/ctpapi/6.3.15|6.3.19_P1|6.5.1|6.6.1_P1|6.6.7|6.6.9|6.7.0|6.7.2/green" />
-    </a>       
-    <a href="#">     
-        <img src="https://badgen.net/badge/python/3.7|3.8|3.9|3.10|3.11|3.12/green" />          
-    </a> 
+    <a href="https://gitee.com/jedore/ctp-resources" target="_blank"><img src="https://badgen.net/badge/ctpapi/6.3.15|6.3.19_P1|6.5.1|6.6.1_P1|6.6.7|6.6.9|6.7.0|6.7.2/green" /></a>       
+    <a href="#"><img src="https://badgen.net/badge/python/3.7|3.8|3.9|3.10|3.11|3.12/green" /></a> 
 </p>
 
 <p align="center">     
-    <a href="#">         
-        <img src="https://badgen.net/badge/plat/Windows|Linux|Mac/green" />  
-    </a>        
-    <a href="https://pypi.org/project/openctp-ctp" target="_blank">                                             
-        <img src="https://badgen.net/badge/pypi/openctp-ctp/green" />                    
-    </a> 
-    <a href="https://pepy.tech/project/openctp-ctp" target="_blank">                                             
-        <img src="https://static.pepy.tech/badge/openctp-ctp" />                    
-    </a> 
+    <a href="#"><img src="https://badgen.net/badge/plat/Windows|Linux|Mac/green" /></a>        
+    <a href="https://pypi.org/project/openctp-ctp" target="_blank"><img src="https://badgen.net/badge/pypi/openctp-ctp/green" /></a> 
+    <a href="https://pepy.tech/project/openctp-ctp" target="_blank"><img src="https://static.pepy.tech/badge/openctp-ctp" /></a> 
 </p>
 
 ## 简介
