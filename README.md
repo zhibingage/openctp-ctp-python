@@ -4,15 +4,29 @@
     <em>:rocket:以 Python 的方式，简化对接 CTPAPI 的过程，节省精力，快速上手</em>  
 </p>
 
-<p align="center">     
-    <a href="https://gitee.com/jedore/ctp-resources" target="_blank"><img src="https://badgen.net/badge/ctpapi/6.3.15|6.3.19_P1|6.5.1|6.6.1_P1|6.6.7|6.6.9|6.7.0|6.7.2/green" /></a>       
-    <a href="#"><img src="https://badgen.net/badge/python/3.7|3.8|3.9|3.10|3.11|3.12/green" /></a> 
+<p>     
+    <a href="https://gitee.com/jedore/ctp-resources" ><img src="https://flat.badgen.net/badge/CTPAPI/6.3.15/purple" /></a>       
+    <a href="https://gitee.com/jedore/ctp-resources" ><img src="https://flat.badgen.net/badge/CTPAPI/6.3.19_P1/purple" /></a>       
+    <a href="https://gitee.com/jedore/ctp-resources" ><img src="https://flat.badgen.net/badge/CTPAPI/6.5.1/purple" /></a>       
+    <a href="https://gitee.com/jedore/ctp-resources" ><img src="https://flat.badgen.net/badge/CTPAPI/6.6.1_P1/purple" /></a>       
+    <a href="https://gitee.com/jedore/ctp-resources" ><img src="https://flat.badgen.net/badge/CTPAPI/6.6.7/purple" /></a>       
+    <a href="https://gitee.com/jedore/ctp-resources" ><img src="https://flat.badgen.net/badge/CTPAPI/6.6.9/purple" /></a>       
+    <a href="https://gitee.com/jedore/ctp-resources" ><img src="https://flat.badgen.net/badge/CTPAPI/6.7.0/purple" /></a>       
+    <a href="https://gitee.com/jedore/ctp-resources" ><img src="https://flat.badgen.net/badge/CTPAPI/6.7.2/purple" /></a>       
 </p>
-
-<p align="center">     
-    <a href="#"><img src="https://badgen.net/badge/plat/Windows|Linux|Mac/green" /></a>        
-    <a href="https://pypi.org/project/openctp-ctp" target="_blank"><img src="https://badgen.net/badge/pypi/openctp-ctp/green" /></a> 
-    <a href="https://pepy.tech/project/openctp-ctp" target="_blank"><img src="https://static.pepy.tech/badge/openctp-ctp" /></a> 
+<p>     
+    <a href="#"><img src="https://flat.badgen.net/badge/OS/Win-x86/cyan" /></a>        
+    <a href="#"><img src="https://flat.badgen.net/badge/OS/Win-x86_64/cyan" /></a>        
+    <a href="#"><img src="https://flat.badgen.net/badge/OS/Linux-x86_64/cyan" /></a>        
+    <a href="#"><img src="https://flat.badgen.net/badge/OS/MacOS-x86_64/cyan" /></a>        
+    <a href="#"><img src="https://flat.badgen.net/badge/OS/MacOS-arm64/cyan" /></a>        
+</p>
+<p>
+    <a href="#"><img src="https://flat.badgen.net/badge/Python/3.7~3.12/blue" /></a> 
+    <a href="https://pypi.org/project/openctp-ctp" ><img src="https://flat.badgen.net/badge/Pypi/openctp-ctp/yellow" /></a> 
+    <a href="https://pypi.org/project/openctp-ctp" ><img src="https://flat.badgen.net/badge/Test/success/green?icon=github" /></a>
+    <a href="https://pypi.org/project/openctp-ctp" ><img src="https://flat.badgen.net/badge/CI/success/green?icon=github" /></a> 
+    <a href="https://pepy.tech/project/openctp-ctp" ><img src="https://static.pepy.tech/badge/openctp-ctp" /></a> 
 </p>
 
 ## 简介
@@ -99,15 +113,7 @@ from openctp_ctp import tdapi, mdapi
 
    openctp-ctp 只支持 ctpapi 生产版本，不支持评测版本。
 
-3. 支持哪些系统平台
-    - Window x64
-    - Linux x64
-    - Mac x64
-    - Mac arm64
-
-   支持 Mac 系统的版本有: 6.6.7/6.6.9/6.7.0/6.7.2
-
-4. Mac `zsh` 安装 openctp-ctp 失败
+3. Mac `zsh` 安装 openctp-ctp 失败
 
    因为 `zsh` 和 `pip` 的一些命令模式冲突
 
