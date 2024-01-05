@@ -23,8 +23,8 @@
 </p>
 <p>
     <a href="#"><img src="https://flat.badgen.net/badge/Python/3.7~3.12/blue" /></a>
+    <a href="https://pypi.org/project/openctp-ctp" ><img src="https://flat.badgen.net/badge/Pypi/openctp-ctp/blue" /></a>
     <a href="https://pepy.tech/project/openctp-ctp" ><img src="https://static.pepy.tech/badge/openctp-ctp" /></a>
-    <a href="https://pypi.org/project/openctp-ctp" ><img src="https://flat.badgen.net/badge/Pypi/openctp-ctp/yellow" /></a>
     <a href="#" ><img src="https://flat.badgen.net/badge/Test/pass/green?icon=github" /></a>
     <a href="#" ><img src="https://flat.badgen.net/badge/CI/success/green?icon=github" /></a>
 </p>
