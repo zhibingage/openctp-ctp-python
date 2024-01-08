@@ -11,15 +11,17 @@
     <a href="#"><img src="https://flat.badgen.net/badge/os/macos-arm64/cyan?icon=apple" /></a>
 </div>
 <div>
-    <a href="https://gitee.com/jedore/ctp-resources" ><img src="https://flat.badgen.net/badge/CTPAPI/6.3.15|6.3.19_P1|6.5.1|6.6.1_P1|6.6.7|6.6.9|6.7.0|6.7.2/purple" /></a>
     <a href="#"><img src="https://flat.badgen.net/badge/python/3.7|3.8|3.9|3.10|3.11|3.12/blue" /></a>
-</div>
-<div>
-    <a href="https://pypi.org/project/openctp-ctp" ><img src="https://flat.badgen.net/badge/pypi/openctp-ctp/blue" /></a>
     <a href="https://pepy.tech/project/openctp-ctp" ><img src="https://static.pepy.tech/badge/openctp-ctp" /></a>
     <a href="#" ><img src="https://flat.badgen.net/badge/license/BSD-3/blue?" /></a>
     <a href="#" ><img src="https://flat.badgen.net/badge/test/pass/green?icon=github" /></a>
     <a href="#" ><img src="https://flat.badgen.net/badge/CI/success/green?icon=github" /></a>
+</div>
+<div>
+    <a href="https://pypi.org/project/openctp-ctp" ><img src="https://flat.badgen.net/badge/pypi/6.3.15.*|6.3.19.*|6.5.1.*|6.6.1.*|6.6.7.*|6.6.9.*|6.7.0.*|6.7.1.*|6.7.2.*/blue" /></a>
+</div>
+<div>
+    <a href="https://gitee.com/jedore/ctp-resources" ><img src="https://flat.badgen.net/badge/CTPAPI/6.3.15|6.3.19_P1|6.5.1|6.6.1_P1|6.6.7|6.6.9|6.7.0|6.7.1|6.7.2/purple" /></a>
 </div>
 
 ## 简介
