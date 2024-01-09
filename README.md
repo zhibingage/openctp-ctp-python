@@ -14,7 +14,7 @@
     <a href="#" ><img src="https://flat.badgen.net/badge/test/pass/green?icon=github" /></a>
     <a href="#" ><img src="https://flat.badgen.net/badge/CI/success/green?icon=github" /></a>
 </div>
-
+<br>
 :rocket:以 Python 的方式，简化对接 CTPAPI 的过程，节省精力，快速上手。
 
 **openctp-ctp**是由[openctp](https://github.com/openctp)团队提供的官方ctpapi(c++)的python版本，
@@ -30,7 +30,7 @@
 
 ## 支持版本
 
-| CTPAPI(C++) | openctp-ctp(python) | win x86            | win x64            | linux x86          | mac x64            | mac arm            |
+| CTPAPI(C++) | openctp-ctp(python) | win x86            | win x64            | linux x86          | mac x64            | mac arm64          |
 |-------------|---------------------|--------------------|--------------------|--------------------|--------------------|--------------------|
 | 6.3.15      | 6.3.15.*            | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x:                | :x:                |
 | 6.3.19_P1   | 6.3.19.*            | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x:                | :x:                |
@@ -78,7 +78,7 @@ from openctp_ctp import tdapi, mdapi
 
     - C++原生编解码方式
 
-      swig 转换时使用 C++ 原生方式进行 GBK 和 UTF8 的编码转换
+      swig 转换时使用 C++ 原生方式进行 GBK 和 UTF8 的编码转换  
       如: 6.6.9-x64, python 3.10  
       从目录 `6.6.9_20220820/win64` 和 `6.6.9_20220820/win64/py310` 下载库文件  
       将下载的文件放在本地同一个目录下
@@ -94,9 +94,10 @@ from openctp_ctp import tdapi, mdapi
 
     - `libiconv`编解码方式
 
-      swig 转换时使用 `libiconv` 进行 GBK 和 UTF8 的编码转换
-      如：6.7.0-64, python 3.10
-      从目录 `6.7.0_20230209/win64` 和 `6.7.0_20230209/win64/py310` 下载库文件
+      swig 转换时使用 `libiconv` 进行 GBK 和 UTF8 的编码转换  
+      如：6.7.0-64, python 3.10  
+      从目录 `6.7.0_20230209/win64` 和 `6.7.0_20230209/win64/py310` 下载库文件  
+      将下载的文件放在本地同一个目录下
       ```PowerShell 
       # 下载文件
       charset.dll
@@ -127,8 +128,7 @@ from openctp_ctp import tdapi, mdapi
 
 - 测试交易接口
 
-  需要在 [simnow官网](http://www.simnow.com.cn) 注册账号
-
+  需要在 [simnow官网](http://www.simnow.com.cn) 注册账号  
   注意选取有效的交易前置地址, 参考[openctp监控Simnow](http://121.37.80.177:50080/detail.html)
 
     ```PowerShell 
@@ -190,8 +190,7 @@ sudo yum reinstall -y glibc-common
 
 ## 说明
 
-- 通过openctp-ctp库只能连接支持ctpapi(c++)**官方实现**的柜台，如:simnow;不支持连接兼容ctpapi接口但**非官方实现**
-  的柜台，如:openctp(由tts支持)
+- 通过openctp-ctp库只能连接支持ctpapi(c++)**官方实现**的柜台，如:simnow;不支持连接兼容ctpapi接口但**非官方实现**的柜台，如:openctp(由tts支持)
 - openctp-ctp 只支持 ctpapi 生产版本，不支持评测版本。
 - 限于时间/精力有限，只是在 SimNow 模拟平台进行了简单的测试，若要通过 openctp-ctp
   使用CTPAPI所有的接口或用于生产环境，请自行进行充分测试。
