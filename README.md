@@ -1,7 +1,4 @@
-<h1 align="center">OPENCTP-CTP</h1>
-<p align="center">
-    <em>:rocket:以 Python 的方式，简化对接 CTPAPI 的过程，节省精力，快速上手</em>
-</p>
+<h1 align="center">openctp-ctp</h1>
 
 <div>
     <a href="#"><img src="https://flat.badgen.net/badge/os/windows-x86/cyan?icon=windows" /></a>
@@ -17,48 +14,134 @@
     <a href="#" ><img src="https://flat.badgen.net/badge/test/pass/green?icon=github" /></a>
     <a href="#" ><img src="https://flat.badgen.net/badge/CI/success/green?icon=github" /></a>
 </div>
-<div>
-    <a href="https://pypi.org/project/openctp-ctp" ><img src="https://flat.badgen.net/badge/pypi/6.3.15.*|6.3.19.*|6.5.1.*|6.6.1.*|6.6.7.*|6.6.9.*|6.7.0.*|6.7.1.*|6.7.2.*/blue" /></a>
-</div>
-<div>
-    <a href="https://gitee.com/jedore/ctp-resources" ><img src="https://flat.badgen.net/badge/CTPAPI/6.3.15|6.3.19_P1|6.5.1|6.6.1_P1|6.6.7|6.6.9|6.7.0|6.7.1|6.7.2/purple" /></a>
-</div>
 
-## 简介
+:rocket:以 Python 的方式，简化对接 CTPAPI 的过程，节省精力，快速上手。
 
-**openctp-ctp** 是由 [**openctp**](https://github.com/openctp) 团队提供的 ctp 官方 ctpapi(c++) 的python版本，
-使用 **swig** 转换 ctpapi(c++) 生成。
+**openctp-ctp**是由[openctp](https://github.com/openctp)团队提供的官方ctpapi(c++)的python版本，
+使用**swig**转换ctpapi(c++)生成。
 
-openctp-ctp 有 6.3.15.x / 6.3.19.x / 6.5.1.x / 6.6.1.x / 6.6.7.x / 6.6.9.x / 6.7.0.x / 6.7.2.x 多个版本系列，
-分别对应 ctpapi(c++) 的**生产版本**: 6.3.15 / 6.3.19_P1 / 6.5.1 / 6.6.1_P1 / 6.6.7 / 6.6.9 / 6.7.0 / 6.7.2
+* [支持版本](#支持版本)
+* [使用方式](#使用方式)
+    * [通过pip安装](#通过pip安装)
+    * [手动下载配置](#手动下载配置)
+* [代码示例](#代码示例)
+* [字符集问题](#字符集问题)
+* [说明](#说明)
 
-*通过 openctp-ctp 库只能连接支持 ctpapi(c++) **官方实现**的柜台，如：simnow; 不支持连接所谓的兼容 ctpapi(c++)
-接口但**非官方实现**的柜台，如: openctp(由tts支持).*
+## 支持版本
 
-## 安装使用
+| CTPAPI(C++) | openctp-ctp(python) | win x86            | win x64            | linux x86          | mac x64            | mac arm            |
+|-------------|---------------------|--------------------|--------------------|--------------------|--------------------|--------------------|
+| 6.3.15      | 6.3.15.*            | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x:                | :x:                |
+| 6.3.19_P1   | 6.3.19.*            | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x:                | :x:                |
+| 6.5.1       | 6.5.1.*             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x:                | :x:                |
+| 6.6.1_P1    | 6.6.1.*             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x:                | :x:                |
+| 6.6.7       | 6.6.7.*             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| 6.6.9       | 6.6.9.*             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| 6.7.0       | 6.7.0.*             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| 6.7.1       | 6.7.1.*             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x:                | :x:                |
+| 6.7.2       | 6.7.2.*             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 
-*需要自行提前准备好 Python 环境*
+## 使用方式
 
-安装方式:
+需要自行提前准备好 Python 环境
+
+### 通过pip安装
+
+任选一个版本安装，如 6.7.2
 
 ```shell
-# 安装最新版
-pip install openctp-ctp
-# 指定版本号
-pip install openctp-ctp==6.6.7.*
+pip install openctp-ctp==6.7.2.*
 ```
 
-*需要注意同时只能安装一个版本系列的 openctp-ctp*
+`zsh`安装:
 
-引用方式:
+```shell
+pip install openctp-ctp==6.7.2.\*
+```
+
+引用方法:
 
 ```python 
 from openctp_ctp import tdapi, mdapi
 ```
 
-更多使用方式参见代码示例。
+更多的接口使用方法参考 [代码示例](#代码示例)
+
+### 手动下载配置
+
+手动下载指定版本的动态库文件，并配置库路径。
+
+- Windows
+
+  因为 windows 下，不同的 python 版本编译的动态库之间不可共用，所以不同的 python 版本需要下载指定版本对应的动态库。
+
+    - C++原生编解码方式
+
+      swig 转换时使用 C++ 原生方式进行 GBK 和 UTF8 的编码转换
+      如: 6.6.9-x64, python 3.10  
+      从目录 `6.6.9_20220820/win64` 和 `6.6.9_20220820/win64/py310` 下载库文件  
+      将下载的文件放在本地同一个目录下
+      ```PowerShell 
+      # 下载文件
+      _thosttraderapi.pyd
+      _thostmduserapi.pyd
+      thosttraderapi.py
+      thostmduserapi.py
+      thosttraderapi_se.dll
+      thostmduserapi.dll 
+      ```
+
+    - `libiconv`编解码方式
+
+      swig 转换时使用 `libiconv` 进行 GBK 和 UTF8 的编码转换
+      如：6.7.0-64, python 3.10
+      从目录 `6.7.0_20230209/win64` 和 `6.7.0_20230209/win64/py310` 下载库文件
+      ```PowerShell 
+      # 下载文件
+      charset.dll
+      iconv.dll
+      msvcp140.dll
+      _thosttraderapi.pyd
+      _thostmduserapi.pyd
+      thosttraderapi.py
+      thostmduserapi.py
+      thosttraderapi_se.dll
+      thostmduserapi.dll 
+      ```
+      如果本地已经安装了`charset.dll/iconv.dll/msvcp140.dll`且路径配置正确，就不用下载这三个库了。
+
+- Linux
+- MacOS
+
+为了测试是否配置成功，需要下载测试文件 [demo/demo_td.py](demo/demo_td.py)/[demo/demo_md.py](demo/demo_md.py)
+，和上面的文件放在同一个目录下即可。
+
+- 测试行情接口
+
+  注意选取有效的行情前置地址, 参考[openctp监控Simnow](http://121.37.80.177:50080/detail.html)  
+  注意选取有效的合约, 可通过交易接口查询合约
+    ```PowerShell 
+    > python demo_md.py tcp://180.168.146.187:10131 AP410 AP401
+    ```
+
+- 测试交易接口
+
+  需要在 [simnow官网](http://www.simnow.com.cn) 注册账号
+
+  注意选取有效的交易前置地址, 参考[openctp监控Simnow](http://121.37.80.177:50080/detail.html)
+
+    ```PowerShell 
+    > python demo_md.py tcp://180.168.146.187:10130 <userid> <password>
+    ```
+
+`demo_td.py/demo_md.py`
+只提供了最简单的测试，更多的测试示例，参考[demo/mdapi.py](demo/mdapi.py)/[demo/tdapi.py](demo/tdapi.py)
 
 ## 代码示例
+
+*通过pip安装的可以直接使用代码示例；手动安装配置的，需要修改一下引入方式, 是`import thosttraderapi`
+而不是`import openctp_ctp`*
 
 本项目提供了一些 openctp-ctp 的基本使用方式及部分接口示例，具体如下:
 
@@ -75,50 +158,44 @@ from openctp_ctp import tdapi, mdapi
     - 报单录入请求
     - 报单撤销请求
 
-**代码示例仅仅作为参考，只是完成 openctp-ctp 库及ctpapi接口本身的功能，未考虑项目及工程性场景逻辑，
+**代码示例仅仅作为参考，只是完成 openctp-ctp 库及 ctpapi 接口本身的功能，未考虑项目及工程性场景逻辑，
 若要将 openctp-ctp 引入项目，勿照搬示例代码。**
 
-*代码示例不在pypi库中，只能手动下载使用。*
+## 字符集问题
 
-## 常见问题
+Linux下安装后，需要安装中文字符集，否则导入时报错：
 
-1. Linux下安装后，导入时报错
-    ```text
-    >>> import openctp_ctp
-    terminate called after throwing an instance of 'std::runtime_error'
-      what():  locale::facet::_S_create_c_locale name not valid
-    Aborted
-    ```
-   这是字符集问题，需要安装 `GB18030` 字符集，这里提供 ubuntu/debian/centos 的方案：
-    ```bash
-    # Ubuntu (20.04)
-    sudo apt-get install -y locales
-    sudo locale-gen zh_CN.GB18030
-   
-    # Debian (11)
-    sudo apt install locales-all
-    sudo localedef -c -f GB18030 -i zh_CN zh_CN.GB18030
-   
-    # CentOS (7)
-    sudo yum install -y kde-l10n-Chinese
-    sudo yum reinstall -y glibc-common
-    ```
+```text
+>>> import openctp_ctp
+terminate called after throwing an instance of 'std::runtime_error'
+what():  locale::facet::_S_create_c_locale name not valid
+Aborted
+```
 
-2. 如何使用评测版本 ctpapi
+需要安装 `GB18030` 字符集，这里提供 ubuntu/debian/centos 的方案：
 
-   openctp-ctp 只支持 ctpapi 生产版本，不支持评测版本。
+```bash
+# Ubuntu (20.04)
+sudo apt-get install -y locales
+sudo locale-gen zh_CN.GB18030
 
-3. Mac `zsh` 安装 openctp-ctp 失败
+# Debian (11)
+sudo apt install locales-all
+sudo localedef -c -f GB18030 -i zh_CN zh_CN.GB18030
 
-   因为 `zsh` 和 `pip` 的一些命令模式冲突
+# CentOS (7)
+sudo yum install -y kde-l10n-Chinese
+sudo yum reinstall -y glibc-common
+```
 
-   解决: `pip install openctp-ctp==6.6.7.\*`
+## 说明
 
-## 其他说明
-
+- 通过openctp-ctp库只能连接支持ctpapi(c++)**官方实现**的柜台，如:simnow;不支持连接兼容ctpapi接口但**非官方实现**
+  的柜台，如:openctp(由tts支持)
+- openctp-ctp 只支持 ctpapi 生产版本，不支持评测版本。
 - 限于时间/精力有限，只是在 SimNow 模拟平台进行了简单的测试，若要通过 openctp-ctp
   使用CTPAPI所有的接口或用于生产环境，请自行进行充分测试。
 - 后续会完善更多的测试, 以及用于生产的验证
 - [更新日志](CHANGELOG.md)
 
-**使用 openctp-ctp 进行实盘交易的后果完全由使用者自己承担。**
+**使用 openctp-ctp 进行实盘交易的后果完全由使用者自己承担！！！**
