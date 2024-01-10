@@ -51,13 +51,13 @@
 选择一个版本安装，如 6.7.2
 
 ```shell
-pip install -i https://pypi.tuna.tsinghua.edu.cn/simple --trusted-host=pypi.tuna.tsinghua.edu.cn openctp-ctp==6.7.2.*
+pip install openctp-ctp==6.7.2.* -i https://pypi.tuna.tsinghua.edu.cn/simple --trusted-host=pypi.tuna.tsinghua.edu.cn
 ```
 
 `zsh`安装:
 
 ```shell
-pip install -i https://pypi.tuna.tsinghua.edu.cn/simple --trusted-host=pypi.tuna.tsinghua.edu.cn openctp-ctp==6.7.2.\*
+pip install openctp-ctp==6.7.2.\* -i https://pypi.tuna.tsinghua.edu.cn/simple --trusted-host=pypi.tuna.tsinghua.edu.cn
 ```
 
 引用方法:
