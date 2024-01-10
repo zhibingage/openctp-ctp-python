@@ -48,16 +48,16 @@
 
 ### 通过pip安装
 
-任选一个版本安装，如 6.7.2
+选择一个版本安装，如 6.7.2
 
 ```shell
-pip install openctp-ctp==6.7.2.*
+pip install -i https://pypi.tuna.tsinghua.edu.cn/simple --trusted-host=pypi.tuna.tsinghua.edu.cn openctp-ctp==6.7.2.*
 ```
 
 `zsh`安装:
 
 ```shell
-pip install openctp-ctp==6.7.2.\*
+pip install -i https://pypi.tuna.tsinghua.edu.cn/simple --trusted-host=pypi.tuna.tsinghua.edu.cn openctp-ctp==6.7.2.\*
 ```
 
 引用方法:
@@ -76,9 +76,9 @@ from openctp_ctp import tdapi, mdapi
 
   因为 windows 下，不同的 python 版本编译的动态库之间不可共用，所以不同的 python 版本需要下载指定版本对应的动态库。
 
-    - C++原生编解码方式
+    - C++内置编解码方式
 
-      swig 转换时使用 C++ 原生方式进行 GBK 和 UTF8 的编码转换  
+      swig 转换时使用 C++ 内置方式进行 GBK 和 UTF8 的编码转换  
       如: 6.6.9-x64, python 3.10  
       从目录 `6.6.9_20220820/win64` 和 `6.6.9_20220820/win64/py310` 下载库文件  
       将下载的文件放在本地同一个目录下
@@ -110,12 +110,27 @@ from openctp_ctp import tdapi, mdapi
       thosttraderapi_se.dll
       thostmduserapi.dll 
       ```
-      如果本地已经安装了`charset.dll/iconv.dll/msvcp140.dll`且路径配置正确，就不用下载这三个库了。
+      如果本地已经安装了`charset.dll/iconv.dll/msvcp140.dll`并且路径配置正确，就不用下载这三个库了。
 
-- Linux
+- Linux  
+  选择一个ctpapi版本，如: 6.7.2
+  从目录`6.7.2_20230913/linux64`下载所有的文件  
+  将下载的文件放在同一目录下
+  ```bash
+  _thosttraderapi.so
+  _thostmduserapi.so
+  thosttraderapi.py
+  thostmduserapi.py
+  libthosttraderapi_se.so
+  libthostmduserapi.so
+  ```
+  将文件所在路径配置库路径(specify_path填写自己的路径)
+  ```bash
+  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:<specify_path>
+  ```
 - MacOS
 
-为了测试是否配置成功，需要下载测试文件 [demo/demo_td.py](demo/demo_td.py)/[demo/demo_md.py](demo/demo_md.py)
+为了测试是否配置成功，可以下载测试文件 [demo/demo_td.py](demo/demo_td.py)/[demo/demo_md.py](demo/demo_md.py)
 ，和上面的文件放在同一个目录下即可。
 
 - 测试行情接口
@@ -191,9 +206,9 @@ sudo yum reinstall -y glibc-common
 ## 说明
 
 - 通过openctp-ctp库只能连接支持ctpapi(c++)**官方实现**的柜台，如:simnow;不支持连接兼容ctpapi接口但**非官方实现**的柜台，如:openctp(由tts支持)
-- openctp-ctp 只支持 ctpapi 生产版本，不支持评测版本。
+- openctp-ctp 只支持 ctpapi 生产版本，不支持评测版本
 - 限于时间/精力有限，只是在 SimNow 模拟平台进行了简单的测试，若要通过 openctp-ctp
-  使用CTPAPI所有的接口或用于生产环境，请自行进行充分测试。
+  使用CTPAPI所有的接口或用于生产环境，请自行进行充分测试
 - 后续会完善更多的测试, 以及用于生产的验证
 - [更新日志](CHANGELOG.md)
 
