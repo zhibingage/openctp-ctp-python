@@ -76,7 +76,7 @@ from openctp_ctp import tdapi, mdapi
 
   因为 windows 下，不同的 python 版本编译的动态库之间不可共用，所以不同的 python 版本需要下载指定版本对应的动态库。
 
-    - C++内置编解码方式
+    - C++内置转码方式
 
       swig 转换时使用 C++ 内置方式进行 GBK 和 UTF8 的编码转换  
       如: 6.6.9-x64, python 3.10  
@@ -92,7 +92,7 @@ from openctp_ctp import tdapi, mdapi
       thostmduserapi.dll 
       ```
 
-    - `libiconv`编解码方式
+    - `libiconv`转码方式
 
       swig 转换时使用 `libiconv` 进行 GBK 和 UTF8 的编码转换  
       如：6.7.0-64, python 3.10  
