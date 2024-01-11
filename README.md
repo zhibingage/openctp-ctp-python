@@ -30,7 +30,7 @@
 
 ## 支持版本
 
-| CTPAPI(C++) | openctp-ctp(python) | win x86            | win x64            | linux x86          | mac x64            | mac arm64          |
+| CTPAPI(C++) | openctp-ctp(python) | win x86            | win x64            | linux x64          | mac x64            | mac arm64          |
 |-------------|---------------------|--------------------|--------------------|--------------------|--------------------|--------------------|
 | 6.3.15      | 6.3.15.*            | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x:                | :x:                |
 | 6.3.19_P1   | 6.3.19.*            | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x:                | :x:                |
