@@ -42,7 +42,7 @@
 | 6.7.1       | 6.7.1.*             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x:                | :x:                |
 | 6.7.2       | 6.7.2.*             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 
-> Note: openctp-ctp 支持 Python 3.7~3.12，但由于构建工具限制，openctp-ctp 在 MacOS 平台上，不支持 Python3.7
+> 📌 openctp-ctp 支持 Python 3.7~3.12，但由于构建工具限制，openctp-ctp 在 MacOS 平台上，不支持 Python3.7
 
 ## 使用方式
 
