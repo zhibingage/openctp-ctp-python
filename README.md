@@ -20,6 +20,8 @@
 **openctp-ctp**是由[openctp](https://github.com/openctp)团队提供的官方ctpapi(c++)的python版本，
 使用**swig**转换ctpapi(c++)生成。
 
+---
+
 * [支持版本](#支持版本)
 * [使用方式](#使用方式)
     * [通过pip安装（推荐）](#通过pip安装)
@@ -27,6 +29,8 @@
 * [代码示例](#代码示例)
 * [字符集问题](#字符集问题)
 * [说明](#说明)
+
+---
 
 ## 支持版本
 
@@ -207,7 +211,8 @@ sudo yum reinstall -y glibc-common
 
 ## 说明
 
-- 通过openctp-ctp库只能连接支持ctpapi(c++)**官方实现**的柜台，如:simnow;不支持连接兼容ctpapi接口但**非官方实现**的柜台，如:openctp(由tts支持)
+- 通过openctp-ctp库只能连接支持ctpapi(c++)**官方实现**的柜台，如:simnow;不支持连接兼容ctpapi接口但**非官方实现**
+  的柜台，如:openctp(由tts支持)
 - openctp-ctp 只支持 ctpapi 生产版本，不支持评测版本
 - 限于时间/精力有限，只是在 SimNow 模拟平台进行了简单的测试，若要通过 openctp-ctp
   使用CTPAPI所有的接口或用于生产环境，请自行进行充分测试
