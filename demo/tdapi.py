@@ -486,6 +486,64 @@ class CTdSpiImpl(tdapi.CThostFtdcTraderSpi):
         """"""
         self._check_rsp(pRspInfo, pInputOrder)
 
+    def qry_trading_code(self, exchange_id: str):
+        """请求查询交易编码"""
+        print("> 请求查询交易编码")
+        req = tdapi.CThostFtdcQryTradingCodeField()
+        req.BrokerID = self._broker_id
+        req.InvestorID = self._user
+        req.ExchangeID = exchange_id
+        self._check_req(req, self._api.ReqQryTradingCode(req, 0))
+
+    def OnRspQryTradingCode(
+        self,
+        pTradingCode: tdapi.CThostFtdcTradingCodeField,
+        pRspInfo: tdapi.CThostFtdcRspInfoField,
+        nRequestID: int,
+        bIsLast: bool,
+    ):
+        """请求查询交易编码响应"""
+        self._check_rsp(pRspInfo, pTradingCode, bIsLast)
+
+    def qry_exchange(self, exchange_id: str):
+        """查询交易所"""
+        print("> 查询交易所")
+        req = tdapi.CThostFtdcQryExchangeField()
+        req.ExchangeID = exchange_id
+        self._check_req(req, self._api.ReqQryExchange(req, 0))
+
+    def OnRspQryExchange(
+        self,
+        pExchange: tdapi.CThostFtdcExchangeField,
+        pRspInfo: tdapi.CThostFtdcRspInfoField,
+        nRequestID: int,
+        bIsLast: bool,
+    ):
+        """查询交易所应答"""
+        self._check_rsp(pRspInfo, pExchange, bIsLast)
+
+    def user_password_update(self, new_password: str, old_password: str):
+        """用户口令变更"""
+        print("> 用户口令变更请求")
+
+        req = tdapi.CThostFtdcUserPasswordUpdateField()
+        req.BrokerID = self._broker_id
+        req.UserID = self._user
+        req.OldPassword = old_password
+        req.NewPassword = new_password
+
+        self._check_req(req, self._api.ReqUserPasswordUpdate(req, 0))
+
+    def OnRspUserPasswordUpdate(
+        self,
+        pUserPasswordUpdate: tdapi.CThostFtdcUserPasswordUpdateField,
+        pRspInfo: tdapi.CThostFtdcRspInfoField,
+        nRequestID: int,
+        bIsLast: bool,
+    ):
+        """用户口令变更响应"""
+        self._check_rsp(pRspInfo, pUserPasswordUpdate, bIsLast)
+
     def wait(self):
         # 阻塞 等待
         self._wait_queue.get()
@@ -528,5 +586,8 @@ if __name__ == "__main__":
     # spi.limit_order_insert("CZCE", "CF411", 15000)
     # spi.order_cancel1("CZCE", "CF411", "        4858")
     # spi.order_cancel2("CZCE", "CF411", 1, -1111111, "3")
+    # spi.qry_trading_code("CZCE")
+    spi.qry_exchange("DCE")
+    # spi.user_password_update("sWJedore20@#0808", "sWJedore20@#0807")
 
     spi.wait()
