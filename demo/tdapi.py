@@ -544,6 +544,25 @@ class CTdSpiImpl(tdapi.CThostFtdcTraderSpi):
         """用户口令变更响应"""
         self._check_rsp(pRspInfo, pUserPasswordUpdate, bIsLast)
 
+    def qry_order_comm_rate(self, instrument_id: str):
+        """查询申报费率"""
+        print("> 请求查询申报费率")
+        req = tdapi.CThostFtdcQryInstrumentOrderCommRateField()
+        req.BrokerID = self._broker_id
+        req.InvestorID = self._user
+        req.InstrumentID = instrument_id
+        self._check_req(req, self._api.ReqQryInstrumentOrderCommRate(req, 0))
+
+    def OnRspQryInstrumentOrderCommRate(
+        self,
+        pInstrumentOrderCommRate: tdapi.CThostFtdcInstrumentOrderCommRateField,
+        pRspInfo: tdapi.CThostFtdcRspInfoField,
+        nRequestID: int,
+        bIsLast: bool,
+    ):
+        """查询申报费率应答"""
+        self._check_rsp(pRspInfo, pInstrumentOrderCommRate, bIsLast)
+
     def wait(self):
         # 阻塞 等待
         self._wait_queue.get()
@@ -576,7 +595,7 @@ if __name__ == "__main__":
     # spi.qry_instrument(exchange_id="CZCE")
     # spi.qry_instrument(product_id="AP")
     # spi.qry_instrument(instrument_id="AP404")
-    # spi.qry_instrument_commission_rate()
+    # spi.qry_instrument_commission_rate("br2409")
     # spi.qry_instrument_commission_rate("ZC309")
     # spi.qry_instrument_margin_rate()
     # spi.qry_instrument_margin_rate(instrument_id="ZC309")
@@ -587,7 +606,8 @@ if __name__ == "__main__":
     # spi.order_cancel1("CZCE", "CF411", "        4858")
     # spi.order_cancel2("CZCE", "CF411", 1, -1111111, "3")
     # spi.qry_trading_code("CZCE")
-    spi.qry_exchange("DCE")
+    # spi.qry_exchange("DCE")
     # spi.user_password_update("sWJedore20@#0808", "sWJedore20@#0807")
+    # spi.qry_order_comm_rate("ss2407")
 
     spi.wait()

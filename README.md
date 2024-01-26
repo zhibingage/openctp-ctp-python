@@ -181,6 +181,7 @@ from openctp_ctp import tdapi, mdapi
     - 请求查询交易编码
     - 查询交易所
     - 用户口令变更请求
+    - 查询申报费率
 
 **代码示例仅仅作为参考，只是完成 openctp-ctp 库及 ctpapi 接口本身的功能，未考虑项目及工程性场景逻辑，
 若要将 openctp-ctp 引入项目，勿照搬示例代码。**
