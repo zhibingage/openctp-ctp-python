@@ -97,7 +97,7 @@ from openctp_ctp import tdapi, mdapi
       thosttraderapi.py
       thostmduserapi.py
       thosttraderapi_se.dll
-      thostmduserapi.dll 
+      thostmduserapi_se.dll 
       ```
 
     - `libiconv`转码方式
@@ -116,7 +116,7 @@ from openctp_ctp import tdapi, mdapi
       thosttraderapi.py
       thostmduserapi.py
       thosttraderapi_se.dll
-      thostmduserapi.dll 
+      thostmduserapi_se.dll 
       ```
       如果本地已经安装了`charset.dll/iconv.dll/msvcp140.dll`并且路径配置正确，就不用下载这三个库了。
 
@@ -130,7 +130,7 @@ from openctp_ctp import tdapi, mdapi
   thosttraderapi.py
   thostmduserapi.py
   libthosttraderapi_se.so
-  libthostmduserapi.so
+  libthostmduserapi_se.so
   ```
   将文件所在路径配置库路径(specify_path填写自己的路径)
   ```bash
