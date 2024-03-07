@@ -71,9 +71,5 @@ if __name__ == "__main__":
         Q_EXIT.get(timeout=5)
     except Empty:
         print("time out.")
-    else:
-        os.remove("DialogRsp.con")
-        os.remove("QueryRsp.con")
-        os.remove("TradingDay.con")
     finally:
         api.Release()
