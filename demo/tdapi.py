@@ -116,7 +116,7 @@ class CTdSpiImpl(tdapi.CThostFtdcTraderSpi):
 
             if not is_last:
                 self._print_count += 1
-                self._total = +1
+                self._total += 1
             else:
                 if self._is_login:
                     self._wait_queue.put_nowait(None)
