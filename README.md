@@ -226,5 +226,6 @@ sudo yum reinstall -y glibc-common
   使用CTPAPI所有的接口或用于生产环境，请自行进行充分测试
 - 后续会完善更多的测试, 以及用于生产的验证
 - [更新日志](CHANGELOG.md)
+- [swig转换CTPAPI为Python攻略](https://www.jedore.top/blog/post/ctpapi-swig-python/)
 
 **使用 openctp-ctp 进行实盘交易的后果完全由使用者自己承担！！！**
