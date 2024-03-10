@@ -26,6 +26,7 @@
 * [使用方式](#使用方式)
     * [通过pip安装（推荐）](#通过pip安装)
     * [手动下载配置](#手动下载配置)
+* [编码增强](#编码增强)
 * [代码示例](#代码示例)
 * [字符集问题](#字符集问题)
 * [说明](#说明)
@@ -46,13 +47,13 @@
 | 6.7.1       | 6.7.1.*             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x:                | :x:                |
 | 6.7.2       | 6.7.2.*             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 
-> 📌 :x:是因为CTP官方没有提供相应平台的库。 openctp-ctp 支持 Python 3.7~3.12，但由于构建工具限制，openctp-ctp 在 MacOS 平台上，不支持 Python3.7
+> 📌 :x:是因为CTP官方没有提供相应平台的库。
 
 ## 使用方式
 
 openctp-ctp提供了两种安装使用方式: 通过pip安装、手动下载配置。
 
-> 需要自行提前准备好 Python 环境。 
+> 需要自行提前准备好 Python 环境。
 
 ### 通过pip安装
 
@@ -161,6 +162,10 @@ from openctp_ctp import tdapi, mdapi
 `demo_td.py/demo_md.py`
 只提供了最简单的测试，更多的测试示例，参考[demo/mdapi.py](demo/mdapi.py)/[demo/tdapi.py](demo/tdapi.py)
 
+## 编码增强
+
+在高级编辑器或IDE中，可以方便的查看接口说明及各字段含义。如下(Pycharm)
+
 ## 代码示例
 
 *通过pip安装的可以直接使用代码示例；手动安装配置的，需要修改一下引入方式, 是`import thosttraderapi`
@@ -168,10 +173,17 @@ from openctp_ctp import tdapi, mdapi
 
 本项目提供了一些 openctp-ctp 的基本使用方式及部分接口示例，具体如下:
 
-- 行情 [demo](demo/mdapi.py)
+<details>
+<summary> 行情 (demo/mdapi.py) </summary>
+
     - 登录
     - 订阅行情
-- 交易 [demo](demo/tdapi.py)
+
+</details>
+
+<details>
+<summary> 交易 (demo/tdapi.py) </summary>
+
     - 登录
     - 投资者结算结果确认
     - 请求查询合约
@@ -186,6 +198,8 @@ from openctp_ctp import tdapi, mdapi
     - 查询申报费率
     - 请求查询投资者持仓
     - 请求查询投资者持仓明细
+
+</details>
 
 **代码示例仅仅作为参考，只是完成 openctp-ctp 库及 ctpapi 接口本身的功能，未考虑项目及工程性场景逻辑，
 若要将 openctp-ctp 引入项目，勿照搬示例代码。**
