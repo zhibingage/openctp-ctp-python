@@ -165,6 +165,11 @@ from openctp_ctp import tdapi, mdapi
 ## 编码增强
 
 在高级编辑器或IDE中，可以方便的查看接口说明及各字段含义。如下(Pycharm)
+<div align="center"><img width="850" alt="" align="center" src="https://github.com/openctp/openctp-ctp-python/assets/17944025/e59a12c1-e5b5-40dd-a3e2-1d274c63bd69" /></div>
+.
+<div align="center"><img width="850" alt="" align="center" src="https://github.com/openctp/openctp-ctp-python/assets/17944025/1b06e371-3974-4e39-8328-34c12a1b0ae0" /></div>
+.
+<div align="center"><img width="850" alt="" align="center" src="https://github.com/openctp/openctp-ctp-python/assets/17944025/84e9e87c-1a8b-42f7-82d7-7e20829d2520" /></div>
 
 ## 代码示例
 
