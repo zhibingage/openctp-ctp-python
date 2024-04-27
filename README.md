@@ -219,6 +219,11 @@ terminate called after throwing an instance of 'std::runtime_error'
 what():  locale::facet::_S_create_c_locale name not valid
 Aborted
 ```
+或
+```text
+>>> import openctp_ctp
+Aborted
+```
 
 需要安装 `GB18030` 字符集，这里提供 ubuntu/debian/centos 的方案：
 
