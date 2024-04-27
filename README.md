@@ -57,7 +57,7 @@
 | 6.7.0          | 6.7.0.*                | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_multiplication_x: | :heavy_multiplication_x: |
 | 6.7.2          | 6.7.2.*                | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_multiplication_x: | :heavy_multiplication_x: |
 
-> 📌 :x:是因为CTP官方没有提供相应平台的库。:heavy_multiplication_x:是 openctp 还未提供支持Python支持
+> 📌 :x:是因为CTP官方没有提供相应平台的库。:heavy_multiplication_x:是 openctp 还未提供支持Python
 
 ## 使用方式
 
