@@ -35,19 +35,29 @@
 
 ## 支持版本
 
-| CTPAPI(C++) | openctp-ctp(python) | win x86            | win x64            | linux x64          | mac x64            | mac arm64          |
-|-------------|---------------------|--------------------|--------------------|--------------------|--------------------|--------------------|
-| 6.3.15      | 6.3.15.*            | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x:                | :x:                |
-| 6.3.19_P1   | 6.3.19.*            | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x:                | :x:                |
-| 6.5.1       | 6.5.1.*             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x:                | :x:                |
-| 6.6.1_P1    | 6.6.1.*             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x:                | :x:                |
-| 6.6.7       | 6.6.7.*             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| 6.6.9       | 6.6.9.*             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| 6.7.0       | 6.7.0.*             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| 6.7.1       | 6.7.1.*             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x:                | :x:                |
-| 6.7.2       | 6.7.2.*             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| CTPAPI生产版(C++) | openctp-ctp(python) | win x86            | win x64            | linux x64          | mac x64            | mac arm64          |
+|----------------|---------------------|--------------------|--------------------|--------------------|--------------------|--------------------|
+| 6.3.15         | 6.3.15.*            | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x:                | :x:                |
+| 6.3.19_P1      | 6.3.19.*            | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x:                | :x:                |
+| 6.5.1          | 6.5.1.*             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x:                | :x:                |
+| 6.6.1_P1       | 6.6.1.*             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x:                | :x:                |
+| 6.6.7          | 6.6.7.*             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| 6.6.9          | 6.6.9.*             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| 6.7.0          | 6.7.0.*             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| 6.7.1          | 6.7.1.*             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x:                | :x:                |
+| 6.7.2          | 6.7.2.*             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 
-> 📌 :x:是因为CTP官方没有提供相应平台的库。
+| CTPAPI评测版(C++) | openctp-ctp-cp(python) | win x86            | win x64            | linux x64          | mac x64                  | mac arm64                |
+|----------------|------------------------|--------------------|--------------------|--------------------|--------------------------|--------------------------|
+| 6.3.19         | 6.3.19.*               | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x:                      | :x:                      |
+| 6.5.1          | 6.5.1.*                | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x:                      | :x:                      |
+| 6.6.1          | 6.6.1.*                | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x:                      | :x:                      |
+| 6.6.7          | 6.6.7.*                | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x:                      | :x:                      |
+| 6.6.9          | 6.6.9.*                | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_multiplication_x: | :heavy_multiplication_x: |
+| 6.7.0          | 6.7.0.*                | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_multiplication_x: | :heavy_multiplication_x: |
+| 6.7.2          | 6.7.2.*                | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_multiplication_x: | :heavy_multiplication_x: |
+
+> 📌 :x:是因为CTP官方没有提供相应平台的库。:heavy_multiplication_x:是 openctp 还未提供支持Python支持
 
 ## 使用方式
 
@@ -85,7 +95,7 @@ from openctp_ctp import tdapi, mdapi
 
   因为 windows 下，不同的 python 版本编译的动态库之间不可共用，所以不同的 python 版本需要下载指定版本对应的动态库。
 
-  swig 转换时使用 C++ 内置方式进行 GBK 和 UTF8 的编码转换  
+  swig 转换时使用 C++ 内置方式进行 GBK 和 UTF8 的编码转换
 
   如: 6.6.9-x64, python 3.10  
   从目录 `6.6.9_20220820/win64` 和 `6.6.9_20220820/win64/py310` 下载库文件  
@@ -99,7 +109,7 @@ from openctp_ctp import tdapi, mdapi
   thosttraderapi_se.dll
   thostmduserapi_se.dll 
   ```
-    
+
 - Linux  
   选择一个ctpapi版本，如: 6.7.2
   从目录`6.7.2_20230913/linux64`下载所有的文件  
@@ -198,7 +208,9 @@ terminate called after throwing an instance of 'std::runtime_error'
 what():  locale::facet::_S_create_c_locale name not valid
 Aborted
 ```
+
 或
+
 ```text
 >>> import openctp_ctp
 Aborted
@@ -220,11 +232,22 @@ sudo yum install -y kde-l10n-Chinese
 sudo yum reinstall -y glibc-common
 ```
 
+## 评测版
+
+```shell
+pip install openctp-ctp-cp==6.7.2.* -i https://pypi.tuna.tsinghua.edu.cn/simple --trusted-host=pypi.tuna.tsinghua.edu.cn
+```
+
+```python 
+from openctp_ctp_cp import tdapi, mdapi
+```
+
+使用方法同 `openctp-ctp`
+
 ## 说明
 
 - 通过openctp-ctp库只能连接支持ctpapi(c++)**官方实现**的柜台，如:simnow;不支持连接兼容ctpapi接口但**非官方实现**
   的柜台，如:openctp(由tts支持)
-- openctp-ctp 只支持 ctpapi 生产版本，不支持评测版本
 - 限于时间/精力有限，只是在 SimNow 模拟平台进行了简单的测试，若要通过 openctp-ctp
   使用CTPAPI所有的接口或用于生产环境，请自行进行充分测试
 - 后续会完善更多的测试, 以及用于生产的验证
