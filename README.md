@@ -85,42 +85,21 @@ from openctp_ctp import tdapi, mdapi
 
   因为 windows 下，不同的 python 版本编译的动态库之间不可共用，所以不同的 python 版本需要下载指定版本对应的动态库。
 
-    - C++内置转码方式
+  swig 转换时使用 C++ 内置方式进行 GBK 和 UTF8 的编码转换  
 
-      swig 转换时使用 C++ 内置方式进行 GBK 和 UTF8 的编码转换  
-      如: 6.6.9-x64, python 3.10  
-      从目录 `6.6.9_20220820/win64` 和 `6.6.9_20220820/win64/py310` 下载库文件  
-      将下载的文件放在本地同一个目录下
-      ```PowerShell 
-      # 下载文件
-      _thosttraderapi.pyd
-      _thostmduserapi.pyd
-      thosttraderapi.py
-      thostmduserapi.py
-      thosttraderapi_se.dll
-      thostmduserapi_se.dll 
-      ```
-
-    - `libiconv`转码方式
-
-      swig 转换时使用 `libiconv` 进行 GBK 和 UTF8 的编码转换  
-      如：6.7.0-64, python 3.10  
-      从目录 `6.7.0_20230209/win64` 和 `6.7.0_20230209/win64/py310` 下载库文件  
-      将下载的文件放在本地同一个目录下
-      ```PowerShell 
-      # 下载文件
-      charset.dll
-      iconv.dll
-      msvcp140.dll
-      _thosttraderapi.pyd
-      _thostmduserapi.pyd
-      thosttraderapi.py
-      thostmduserapi.py
-      thosttraderapi_se.dll
-      thostmduserapi_se.dll 
-      ```
-      如果本地已经安装了`charset.dll/iconv.dll/msvcp140.dll`并且路径配置正确，就不用下载这三个库了。
-
+  如: 6.6.9-x64, python 3.10  
+  从目录 `6.6.9_20220820/win64` 和 `6.6.9_20220820/win64/py310` 下载库文件  
+  将下载的文件放在本地同一个目录下
+  ```PowerShell 
+  # 下载文件
+  _thosttraderapi.pyd
+  _thostmduserapi.pyd
+  thosttraderapi.py
+  thostmduserapi.py
+  thosttraderapi_se.dll
+  thostmduserapi_se.dll 
+  ```
+    
 - Linux  
   选择一个ctpapi版本，如: 6.7.2
   从目录`6.7.2_20230913/linux64`下载所有的文件  
