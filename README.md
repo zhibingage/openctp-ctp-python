@@ -19,7 +19,7 @@
 
 由 [**openctp**](https://github.com/openctp) 团队提供, 使用Swig制作的Python版CTPAPI。
 
-简化对接CTPAPI的过程，节省精力，快速上手:rocket:
+简化对接CTPAPI的过程，节省精力，快速上手 :rocket:
 
 ---
 
