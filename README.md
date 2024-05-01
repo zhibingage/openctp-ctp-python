@@ -152,7 +152,7 @@ from openctp_ctp import tdapi, mdapi
   注意选取有效的交易前置地址, 参考[openctp监控Simnow](http://openctp.cn)
 
     ```PowerShell 
-    python demo_md.py tcp://180.168.146.187:10130 <userid> <password>
+    python demo_td.py tcp://180.168.146.187:10130 <userid> <password>
     ```
 
 ## 代码示例
