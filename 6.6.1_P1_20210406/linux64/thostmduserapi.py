@@ -5,7 +5,7 @@
 # the SWIG interface file instead.
 
 
-# This module is supported by openctp(https://github.com/openctp).
+# openctp-ctp is supported by openctp(https://github.com/openctp).
 # Author: Jedore(https://github.com/Jedore)
 #
 # BSD 3-Clause License
