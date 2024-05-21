@@ -172,37 +172,44 @@ from openctp_ctp import tdapi, mdapi
 
 ## 字符集问题
 
-Linux下安装后，需要安装中文字符集，否则导入时报错：
+- Linux下安装后，需要安装中文字符集，否则导入时报错：
 
-```text
->>> import openctp_ctp
-terminate called after throwing an instance of 'std::runtime_error'
-what():  locale::facet::_S_create_c_locale name not valid
-Aborted
-```
+    ```text
+    >>> import openctp_ctp
+    terminate called after throwing an instance of 'std::runtime_error'
+    what():  locale::facet::_S_create_c_locale name not valid
+    Aborted
+    ```
+    
+    或
+    
+    ```text
+    >>> import openctp_ctp
+    Aborted
+    ```
+    
+    需要安装 `GB18030` 字符集，这里提供 ubuntu/debian/centos 的方案：
+    
+    ```bash
+    # Ubuntu (20.04)
+    sudo apt-get install -y locales
+    sudo locale-gen zh_CN.GB18030
+    
+    # Debian (11)
+    sudo apt install locales-all
+    sudo localedef -c -f GB18030 -i zh_CN zh_CN.GB18030
+    
+    # CentOS (7)
+    sudo yum install -y kde-l10n-Chinese
+    sudo yum reinstall -y glibc-common
+    ```
 
-或
-
-```text
->>> import openctp_ctp
-Aborted
-```
-
-需要安装 `GB18030` 字符集，这里提供 ubuntu/debian/centos 的方案：
-
-```bash
-# Ubuntu (20.04)
-sudo apt-get install -y locales
-sudo locale-gen zh_CN.GB18030
-
-# Debian (11)
-sudo apt install locales-all
-sudo localedef -c -f GB18030 -i zh_CN zh_CN.GB18030
-
-# CentOS (7)
-sudo yum install -y kde-l10n-Chinese
-sudo yum reinstall -y glibc-common
-```
+- Mac下报错
+    ```text
+    Fatal Python error: config_get_locale_encoding: failed to get the locale encoding: nl_langinfo(CODESET) failed
+    Python runtime state: preinitialized
+    ```
+    设置 `export LANG="en_US.UTF-8"` 并使之生效
 
 ## 说明
 
