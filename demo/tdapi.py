@@ -61,6 +61,8 @@ class CTdSpiImpl(tdapi.CThostFtdcTraderSpi):
         self._api.Init()
         print("初始化成功")
 
+        self.content = b""
+
     @property
     def is_login(self):
         return self._is_login
@@ -223,6 +225,35 @@ class CTdSpiImpl(tdapi.CThostFtdcTraderSpi):
             return
 
         self._is_login = True
+
+    def settlement_info(self):
+        """请求查询投资者结算结果"""
+        print("> 请求查询投资者结算结果")
+        req = tdapi.CThostFtdcQrySettlementInfoField()
+        req.BrokerID = self._broker_id
+        req.InvestorID = self._user
+        self._check_req(req, self._api.ReqQrySettlementInfo(req, 0))
+
+    def OnRspQrySettlementInfo(
+        self,
+        pSettlementInfo: tdapi.CThostFtdcSettlementInfoField,
+        pRspInfo: tdapi.CThostFtdcRspInfoField,
+        nRequestID: int,
+        bIsLast: bool,
+    ):
+        """请求查询投资者结算结果响应"""
+        if pRspInfo and pRspInfo.ErrorID:
+            print("失败")
+            return
+
+        if not bIsLast:
+            if pSettlementInfo:
+                self.content += pSettlementInfo.Content
+        if bIsLast:
+            if pSettlementInfo:
+                self.content += pSettlementInfo.Content
+            print(self.content.decode("gbk"))
+            self.content = b""
 
     def settlement_info_confirm(self):
         """投资者结算结果确认"""
@@ -601,6 +632,44 @@ class CTdSpiImpl(tdapi.CThostFtdcTraderSpi):
         """查询投资者持仓明细响应"""
         self._check_rsp(pRspInfo, pInvestorPositionDetail, bIsLast)
 
+    def qry_trade(self):
+        """请求查询成交"""
+        print("> 请求查询成交")
+
+        req = tdapi.CThostFtdcQryTradeField()
+        req.InvestorID = self._user
+        req.BrokerID = self._broker_id
+        self._check_req(req, self._api.ReqQryTrade(req, 0))
+
+    def OnRspQryTrade(
+        self,
+        pTrade: tdapi.CThostFtdcTradeField,
+        pRspInfo: tdapi.CThostFtdcRspInfoField,
+        nRequestID: int,
+        bIsLast: bool,
+    ):
+        """请求查询成交响应"""
+        self._check_rsp(pRspInfo, pTrade, bIsLast)
+
+    def qry_order(self):
+        """请求查询订单"""
+        print("请求查询订单")
+
+        req = tdapi.CThostFtdcQryOrderField()
+        req.InvestorID = self._user
+        req.BrokerID = self._broker_id
+        self._check_req(req, self._api.ReqQryOrder(req, 0))
+
+    def OnRspQryOrder(
+        self,
+        pOrder: tdapi.CThostFtdcOrderField,
+        pRspInfo: tdapi.CThostFtdcRspInfoField,
+        nRequestID: int,
+        bIsLast: bool,
+    ):
+        """请求查询订单响应"""
+        self._check_rsp(pRspInfo, pOrder, bIsLast)
+
     def wait(self):
         # 阻塞 等待
         self._wait_queue.get()
@@ -628,6 +697,7 @@ if __name__ == "__main__":
     # 代码中的请求参数编写时测试通过, 不保证以后一定成功。
     # 需要测试哪个请求, 取消下面对应的注释, 并按需修改参请求参数即可。
 
+    spi.settlement_info()
     # spi.settlement_info_confirm()
     # spi.qry_instrument()
     # spi.qry_instrument(exchange_id="CZCE")
@@ -649,5 +719,7 @@ if __name__ == "__main__":
     # spi.qry_order_comm_rate("ss2407")
     # spi.qry_investor_position()
     # spi.qry_investor_position_detail()
+    # spi.qry_trade()
+    # spi.qry_order()
 
     spi.wait()
