@@ -1,3 +1,7 @@
+## 2024-06-04
+
+- openctp-ctp-cp Windows/Linux 修复结算单缺失数据问题
+
 ## 2024-06-02
 
 - Windows/Linux 修复结算单缺失问题
