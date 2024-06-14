@@ -69,7 +69,7 @@
 ## 快速使用
 
 openctp-ctp提供了两种安装使用方式: 通过pip安装、手动下载配置。
-openctp-ctp-ctp 只提供了pip安装的方式
+openctp-ctp-cp 只提供了pip安装的方式
 
 > 需要自行提前准备好 Python 环境。
 
