@@ -38,6 +38,8 @@
 
 ## 支持版本
 
+> 📌 :x:是因为CTP官方没有提供相应平台的库。:heavy_multiplication_x:是openctp还未提供支持
+
 ### 生产版
 
 | openctp-ctp | win x86            | win x64            | linux x64          | mac x64            | mac arm64          |
@@ -63,8 +65,6 @@
 | 6.6.9.*        | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_multiplication_x: | :heavy_multiplication_x: |
 | 6.7.0.*        | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_multiplication_x: | :heavy_multiplication_x: |
 | 6.7.2.*        | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_multiplication_x: | :heavy_multiplication_x: |
-
-> 📌 :x:是因为CTP官方没有提供相应平台的库。:heavy_multiplication_x:是openctp还未提供支持
 
 ## 快速使用
 
@@ -160,6 +160,8 @@ from openctp_ctp import tdapi, mdapi
 ## 代码示例
 
 参考 md_demo.py/demo_td.py/tdapi.py
+
+也可参考 https://github.com/Jedore/ctp.examples/blob/main/openctp-ctp/README.md
 
 ## 编码增强
 
