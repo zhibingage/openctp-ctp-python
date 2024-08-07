@@ -95,7 +95,7 @@ from openctp_ctp import tdapi, mdapi
 
 更多的接口使用方法参考 [代码示例](#代码示例)
 
-> 以上流程, 将 **openctp-ctp** 更换为 **openctp-ctp-ctp** 就是评测版的安装使用方式
+> 以上流程, 将 **openctp-ctp** 更换为 **openctp-ctp-cp** 就是评测版的安装使用方式
 
 ### 方式二 手动配置
 
