@@ -5,7 +5,8 @@ author: krenx@openctp.
 last modify: 2024/3/20
 """
 
-import thostmduserapi as mdapi
+from openctp_ctp import mdapi
+# import thostmduserapi as mdapi
 
 
 class CMdImpl(mdapi.CThostFtdcMdSpi):
