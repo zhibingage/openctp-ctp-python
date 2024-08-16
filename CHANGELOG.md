@@ -1,3 +1,7 @@
+## 2024-08-16
+
+- openctp-ctp Mac平台下 修复结算单缺失数据问题、 char类型转转码问题、0长度char数组问题
+
 ## 2024-06-04
 
 - openctp-ctp-cp Windows/Linux 修复结算单缺失数据问题
