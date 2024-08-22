@@ -148,6 +148,8 @@ from openctp_ctp import tdapi, mdapi
 
 - 行情接口demo：md_demo.py
 
+更多示例参见 https://github.com/Jedore/ctp.examples
+
 ## 编码增强
 
 在高级编辑器或IDE中，可以方便的查看接口说明及各字段含义。如下(Pycharm)
