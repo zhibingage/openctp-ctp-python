@@ -43,7 +43,7 @@ openctp-ctp库是由 [**openctp**](https://github.com/openctp) 使用Swig技术�
 ### 生产版
 
 | openctp-ctp | win x86            | win x64            | linux x64          | mac x64            | mac arm64          |
-| ----------- | ------------------ | ------------------ | ------------------ | ------------------ | ------------------ |
+| ----------- | ------------------ | ------------------ | ------------------ |--------------------|--------------------|
 | 6.3.15.*    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x:                | :x:                |
 | 6.3.19.*    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x:                | :x:                |
 | 6.5.1.*     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x:                | :x:                |
@@ -53,11 +53,12 @@ openctp-ctp库是由 [**openctp**](https://github.com/openctp) 使用Swig技术�
 | 6.7.0.*     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | 6.7.1.*     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x:                | :x:                |
 | 6.7.2.*     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| 6.7.7.*     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x:                | :x:                |
 
 ### 评测版
 
 | openctp-ctp-cp | win x86            | win x64            | linux x64          | mac x64                  | mac arm64                |
-| -------------- | ------------------ | ------------------ | ------------------ | ------------------------ | ------------------------ |
+| -------------- | ------------------ | ------------------ | ------------------ |--------------------------|--------------------------|
 | 6.3.19.*       | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x:                      | :x:                      |
 | 6.5.1.*        | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x:                      | :x:                      |
 | 6.6.1.*        | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x:                      | :x:                      |
@@ -65,6 +66,7 @@ openctp-ctp库是由 [**openctp**](https://github.com/openctp) 使用Swig技术�
 | 6.6.9.*        | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_multiplication_x: | :heavy_multiplication_x: |
 | 6.7.0.*        | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_multiplication_x: | :heavy_multiplication_x: |
 | 6.7.2.*        | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_multiplication_x: | :heavy_multiplication_x: |
+| 6.7.7.*        | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x:                      | :x:                      |
 
 ## 快速使用
 
