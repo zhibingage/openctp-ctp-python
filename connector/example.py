@@ -52,11 +52,11 @@ def main():
     
     td_config = {
         "front_address": "tcp://180.168.146.187:10130",
-        "broker_id": "9999",
-        "user_id": "000001",
-        "password": "888888",
-        "app_id": "simnow_client_test",
-        "auth_code": "0000000000000000"
+        "broker_id": "YOUR_BROKER_ID",
+        "user_id": "YOUR_USER_ID",
+        "password": "YOUR_PASSWORD",
+        "app_id": "YOUR_APP_ID",
+        "auth_code": "YOUR_AUTH_CODE"
     }
     config_manager.set_td_config(td_config)
     
